@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.menu.content.buttonPlay.id = "menu-button-play";
     window.menu.content.buttonPlay.innerHTML = "<span>Play</span>";
     window.menu.content.buttonPlay.addEventListener("click", () => {
-        this.classList.add("window-fade-out");
+        window.menu.content.buttonPlay.classList.add("window-fade-out");
         setInterval(() => {
-            this.id = "";
-            this.classList.remove("window-fade-out");
+            window.menu.content.buttonPlay.id = "";
+            window.menu.content.buttonPlay.classList.remove("window-fade-out");
         }, 1000);
     });
     window.menu.content.appendChild(window.menu.content.buttonPlay);
