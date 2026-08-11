@@ -1,0 +1,136 @@
+@keyframes background-gradient {
+    0% {
+        background-size: 160%
+    }
+    100% {
+        background-size: 140%;
+    }
+}
+
+@keyframes window-fade-in {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes menu-background-transition {
+    0% {
+        transform: translate(-110px, -110px);
+    }
+    100% {}
+}
+
+@keyframes menu-logo-translate {
+    0% {
+        transform: translate(0, 20px);
+    }
+    100% {
+        transform: translate(0, -20px);
+    }
+}
+
+@keyframes menu-logo-rotate {
+    0% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    font-family: "Rubik Maze", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+div.window, div.window-background-transition, div.window-background-gradient, div.window-content {
+    width: 100%;
+    height: 100%;
+}
+
+div.window {
+    display: flex;
+}
+
+div.window-background-transition, div.window-background-gradient, div.window-content {
+    position: absolute;
+}
+
+div.window-background-transition {
+    overflow: hidden;
+}
+
+div.window-background-gradient {
+    background: radial-gradient(circle, transparent 25%, black 75%) 50%;
+    animation: background-gradient 4s infinite ease-in-out alternate;
+}
+
+div#menu-container {
+    background: gray;
+    animation: window-fade-in 1s 1 ease-out;
+}
+
+div#menu-container > div.window-background-transition > div {
+    width: calc(100% + 110px);
+    height: calc(100% + 110px);
+    background: url("./assets/menu-window-background.png") 0 / 110px repeat;
+    animation: menu-background-transition 3s infinite linear;
+}
+
+div#menu-container > div.window-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1#menu-logo {
+    font-size: 4em;
+    color: black;
+    animation: menu-logo-translate 5s infinite ease-in-out alternate, menu-logo-rotate 2.5s infinite ease-in-out alternate;
+    animation-composition: accumulate;
+}
+
+h1#menu-logo > div {
+    text-align: center;
+}
+
+button#menu-button-play {
+    margin: 50px 0 0 0;
+    width: 150px;
+    border: 5px solid #366640;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(0, 255, 55, 1) 0%, rgba(61, 173, 85, 1) 25%, rgba(54, 102, 64, 1) 100%);
+    transition: border-color 0.5s, scale 0.5s;
+}
+
+button#menu-button-play:focus {
+    border: 5px solid white;
+}
+
+button#menu-button-play:hover {
+    scale: 120%;
+}
+
+button#menu-button-play:active {
+    scale: 90%;
+    opacity: 80%;
+}
+
+button#menu-button-play > span {
+    pointer-events: none;
+    user-select: none;
+    font-size: 2.5em;
+    font-family: "Rubik Maze", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}
