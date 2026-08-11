@@ -16,6 +16,15 @@
     }
 }
 
+@keyframes window-fade-out {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
 @keyframes menu-background-transition {
     0% {
         transform: translate(-110px, -110px);
@@ -60,6 +69,14 @@ div.window {
     display: flex;
 }
 
+div.window.window-fade-in {
+    animation: window-fade-in 1s 1 ease-in;
+}
+
+div.window.window-fade-out {
+    animation: window-fade-out 1s 1 ease-out;
+}
+
 div.window-background-transition, div.window-background-gradient, div.window-content {
     position: absolute;
 }
@@ -75,7 +92,7 @@ div.window-background-gradient {
 
 div#menu-container {
     background: gray;
-    animation: window-fade-in 1s 1 ease-out;
+    animation: window-fade-in 1s 1 ease-in;
 }
 
 div#menu-container > div.window-background-transition > div {

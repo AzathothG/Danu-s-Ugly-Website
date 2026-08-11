@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.menu = document.createElement("div");
     window.menu.id = "menu-container";
-    window.menu.classList.add("window");
+    window.menu.classList.add("window", "window-fade-in");
+    setInterval(() => {
+        window.menu.classList.remove("window-fade-in");
+    }, 1000);
 
     window.menu.backgroundTransition = document.createElement("div");
     window.menu.backgroundTransition.classList.add("window-background-transition");
@@ -26,6 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
     window.menu.content.buttonPlay = document.createElement("button");
     window.menu.content.buttonPlay.id = "menu-button-play";
     window.menu.content.buttonPlay.innerHTML = "<span>Play</span>";
+    window.menu.content.buttonPlay.addEventListener("click", () => {
+        this.classList.add("window-fade-out");
+        setInterval(() => {
+            this.id = "";
+            this.classList.remove("window-fade-out");
+        }, 1000);
+    });
     window.menu.content.appendChild(window.menu.content.buttonPlay);
 
     document.body.appendChild(window.menu);
