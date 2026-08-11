@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.menu.content.buttonPlay.addEventListener("click", () => {
         window.menu.classList.add("window-fade-out");
         setInterval(() => {
-            window.menu.id = "";
+            window.remove();
             window.menu.classList.remove("window-fade-out");
         }, 1000);
     });
