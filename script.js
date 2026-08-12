@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setInterval(() => {
         document.querySelector("img").style.scale = "1";
-        document.querySelector("img").style.top = Math.random() * window.innerHeight + "px";
-        document.querySelector("img").style.left = Math.random() * window.innerWidth + "px";
+        document.querySelector("img").style.top = String(Math.random() * window.innerHeight) + "px";
+        document.querySelector("img").style.left = String(Math.random() * window.innerWidth) + "px";
     }, 5000);
 
     setInterval(() => {
