@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 2000);
         });
 
-        window.menu.content.appendChild(window.menu.content.buttonPlay);
+        content.appendChild(content.buttonPlay);
     });
     windowInitalize("play");
 
