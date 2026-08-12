@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         content.buttonPlay.innerHTML = "<span>Play</span>";
         content.buttonPlay.addEventListener("click", () => {
             window.menu.classList.add("window-fade-out");
+
             setTimeout(() => {
                 window.menu.remove();
                 window.menu.classList.remove("window-fade-out");
@@ -59,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     windowInitalize("play");
 
+    window.menu.classList.add("window-fade-in");
     document.body.appendChild(window.menu);
 
     setTimeout(() => {
