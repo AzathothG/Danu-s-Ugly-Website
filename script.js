@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const window = new Object();
 
     function windowInitalize(windowIdentifier, windowContentInitalize) {
-        localWindow = window[windowIdentifier];
+        let localWindow = window[windowIdentifier];
 
         localWindow = document.createElement("div");
         localWindow.id = windowIdentifier + "-container";
