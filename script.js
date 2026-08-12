@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let window = new Object();
+    const window = new Object();
 
-    function windowInitalize(windowIdentifier, windowContentInitalize = () => {}) {
+    function windowInitalize(windowIdentifier, windowContentInitalize) {
         localWindow = window[windowIdentifier];
 
         localWindow = document.createElement("div");
@@ -19,8 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localWindow.content = document.createElement("div");
         localWindow.content.classList.add("window-content");
-
-        localWindow.content = new Node(windowContentInitalize(localWindow.content));
+        localWindow.content = windowContentInitalize(localWindow.content);
         localWindow.appendChild(localWindow.content);
 
         window[windowIdentifier] = localWindow;
