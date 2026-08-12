@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localWindow.content = document.createElement("div");
         localWindow.content.classList.add("window-content");
-        localWindow.content = (windowContentInitalize)(localWindow.content);
+        if (typeof windowContentInitalize === "function") {
+            localWindow.content = windowContentInitalize(localWindow.content);
+        }
         localWindow.appendChild(localWindow.content);
 
         window[windowIdentifier] = localWindow;
