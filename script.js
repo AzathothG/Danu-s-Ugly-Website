@@ -66,20 +66,4 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         window.menu.classList.remove("window-fade-in");
     }, 1000);
-
-    document.body.appendChild(document.createElement("img"));
-    document.querySelector("img").src = "./assets/rupture.png";
-    document.querySelector("img").style.position = "fixed";
-    document.querySelector("img").style.scale = "1";
-    document.querySelector("img").style.width = "400px";
-    document.querySelector("img").style.height = "400px";
-
-    setInterval(() => {
-        document.querySelector("img").style.scale = "1";
-        document.querySelector("img").style.transform = "translate(" + String(Math.floor(Math.random() * window.innerWidth) - Math.floor(document.querySelector("img").width / 2)) + "px, " + String(Math.floor(Math.random() * window.innerHeight) - Math.floor(document.querySelector("img").height / 2)) + "px)";
-    }, 5000);
-
-    setInterval(() => {
-        document.querySelector("img").style.scale = String(Number(document.querySelector("img").style.scale) - 0.01);
-    }, 50);
 })
