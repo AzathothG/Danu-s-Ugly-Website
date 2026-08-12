@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setInterval(() => {
         document.querySelector("img").style.scale = "1";
-        document.querySelector("img").style.transform = "translate(" + String(Math.floor(Math.random() * document.body.innerWidth)) + "px, " + String(Math.floor(Math.random() * document.body.innerHeight)) + "px)";
+        document.querySelector("img").style.transform = "translate(" + String(Math.floor(Math.random() * window.innerWidth) - document.querySelector("img").width) + "px, " + String(Math.floor(Math.random() * window.innerHeight) - document.querySelector("img").height) + "px)";
     }, 5000);
 
     setInterval(() => {
