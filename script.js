@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     windowInitalize("menu", (content) => {
         content.logo = document.createElement("h1");
         content.logo.id = "menu-logo";
-        content.logo.innerHTML = "<div>Simple</div><div>Maths</div>";
+        content.logo.innerHTML = "<div>Metro</div><div>Mathic</div>";
         content.appendChild(content.logo);
 
         content.buttonPlay = document.createElement("button");
         content.buttonPlay.id = "menu-button-play";
-        content.buttonPlay.innerHTML = "<span>Play</span>";
+        content.buttonPlay.innerHTML = "<span>START</span>";
         content.buttonPlay.addEventListener("click", () => {
             window.menu.classList.add("window-fade-out");
 
