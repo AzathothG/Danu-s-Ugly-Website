@@ -50,6 +50,14 @@
     }
 }
 
+@keyframes play-background-transition {
+    0% {
+        transform: translate(-130px, -130px);
+    }
+    100% {}
+}
+
+
 body {
     margin: 0;
     width: 100vw;
@@ -94,7 +102,7 @@ div.window-background-gradient {
     animation: background-gradient 4s infinite ease-in-out alternate;
 }
 
-div#menu-container, div#play-container {
+div#menu-container {
     background: gray;
 }
 
@@ -102,13 +110,6 @@ div#menu-container > div.window-background-transition > div {
     width: calc(100% + 110px);
     height: calc(100% + 110px);
     background: url("./assets/menu-window-background.png") 0 / 110px repeat;
-    animation: menu-background-transition 3s infinite linear;
-}
-
-div#play-container > div.window-background-transition > div {
-    width: calc(100% + 110px);
-    height: calc(100% + 110px);
-    background: url("./assets/play-window-background.png") 0 / 110px repeat;
     animation: menu-background-transition 3s infinite linear;
 }
 
@@ -160,4 +161,15 @@ button#menu-button-play > span {
     font-weight: 800;
     font-style: normal;
     color: white;
+}
+
+div#play-container {
+    background: white;
+}
+
+div#play-container > div.window-background-transition > div {
+    width: calc(100% + 130px);
+    height: calc(100% + 130px);
+    background: url("./assets/play-window-background.png") 0 / 130px repeat;
+    animation: play-background-transition 3.5s infinite linear;
 }
