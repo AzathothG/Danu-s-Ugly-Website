@@ -103,7 +103,7 @@ div.window-background-gradient {
 }
 
 div#menu-container {
-    background: gray;
+    background: white;
 }
 
 div#menu-container > div.window-background-transition > div {
@@ -164,7 +164,7 @@ button#menu-button-play > span {
 }
 
 div#play-container {
-    background: white;
+    background: gray;
 }
 
 div#play-container > div.window-background-transition > div {
