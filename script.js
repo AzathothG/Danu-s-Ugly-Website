@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         content.buttonPlay.innerHTML = "<span>Play</span>";
         content.buttonPlay.addEventListener("click", () => {
             window.menu.classList.add("window-fade-out");
-            setInterval(() => {
+            setTimeout(() => {
                 window.menu.remove();
                 window.menu.classList.remove("window-fade-out");
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.body.appendChild(window.play);
             }, 1000);
 
-            setInterval(() => {
+            setTimeout(() => {
                 window.play.classList.remove("window-fade-in");
             }, 2000);
         });
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(window.menu);
 
-    setInterval(() => {
+    setTimeout(() => {
         window.menu.classList.remove("window-fade-in");
     }, 1000);
 })

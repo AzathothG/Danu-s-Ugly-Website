@@ -108,7 +108,7 @@ div#menu-container > div.window-background-transition > div {
 div#play-container > div.window-background-transition > div {
     width: calc(100% + 110px);
     height: calc(100% + 110px);
-    background: url("./assets/menu-window-background.png") 0 / 110px repeat;
+    background: url("./assets/play-window-background.png") 0 / 110px repeat;
     animation: menu-background-transition 3s infinite linear;
 }
 
