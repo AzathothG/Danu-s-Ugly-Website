@@ -73,12 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("img").style.scale = "1";
     document.querySelector("img").style.width = "400px";
     document.querySelector("img").style.height = "400px";
-    document.querySelector("img").style.transform = "translate(-50%, -50%)";
 
     setInterval(() => {
         document.querySelector("img").style.scale = "1";
-        document.querySelector("img").style.top = String(Math.random() * window.innerHeight) + "px";
-        document.querySelector("img").style.left = String(Math.random() * window.innerWidth) + "px";
+        document.querySelector("img").style.transform = "translate(" + String(Math.floor(Math.random() * document.body.innerWidth)) + "px, " + String(Math.floor(Math.random() * document.body.innerHeight)) + "px)";
     }, 5000);
 
     setInterval(() => {
