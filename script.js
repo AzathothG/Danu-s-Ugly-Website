@@ -2,27 +2,27 @@ document.addEventListener("DOMContentLoaded", () => {
     let window = new Object();
 
     function windowInitalize(windowIdentifier, windowContentInitalize) {
-        let window = window[windowIdentifier];
+        localWindow = window[windowIdentifier];
 
-        window[windowIdentifier] = document.createElement("div");
-        window[windowIdentifier].id = windowIdentifier + "-container";
-        window[windowIdentifier].classList.add("window");
+        localWindow = document.createElement("div");
+        localWindow.id = windowIdentifier + "-container";
+        localWindow.classList.add("window");
 
-        window[windowIdentifier].backgroundTransition = document.createElement("div");
-        window[windowIdentifier].backgroundTransition.classList.add("window-background-transition");
-        window[windowIdentifier].backgroundTransition.appendChild(document.createElement("div"));
-        window[windowIdentifier].appendChild(window[windowIdentifier].backgroundTransition);
+        localWindow.backgroundTransition = document.createElement("div");
+        localWindow.backgroundTransition.classList.add("window-background-transition");
+        localWindow.backgroundTransition.appendChild(document.createElement("div"));
+        localWindow.appendChild(localWindow.backgroundTransition);
 
-        window[windowIdentifier].backgroundGradient = document.createElement("div");
-        window[windowIdentifier].backgroundGradient.classList.add("window-background-gradient");
-        window[windowIdentifier].appendChild(window[windowIdentifier].backgroundGradient);
+        localWindow.backgroundGradient = document.createElement("div");
+        localWindow.backgroundGradient.classList.add("window-background-gradient");
+        localWindow.appendChild(localWindow.backgroundGradient);
 
-        window[windowIdentifier].content = document.createElement("div");
-        window[windowIdentifier].content.classList.add("window-content");
+        localWindow.content = document.createElement("div");
+        localWindow.content.classList.add("window-content");
 
-        windowContentInitalize(window[windowIdentifier].content);
+        windowContentInitalize(localWindow.content);
 
-        window[windowIdentifier].appendChild(window[windowIdentifier].content);
+        localWindow.appendChild(localWindow.content);
 
         return undefined;
     }
