@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let window = new Object();
 
-    function windowInitalize(windowIdentifier, windowContentInitalize) {
+    function windowInitalize(windowIdentifier, windowContentInitalize = () => {}) {
         localWindow = window[windowIdentifier];
 
         localWindow = document.createElement("div");
@@ -20,11 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
         localWindow.content = document.createElement("div");
         localWindow.content.classList.add("window-content");
 
-        windowContentInitalize(localWindow.content);
-
+        localWindow.content = windowContentInitalize(localWindow.content);
         localWindow.appendChild(localWindow.content);
 
-        return undefined;
+        window[windowIdentifier] = localWindow;
+
+        return localWindow;
     }
 
     windowInitalize("menu", (content) => {
@@ -52,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         content.appendChild(content.buttonPlay);
+
+        return content;
     });
     windowInitalize("play");
 
