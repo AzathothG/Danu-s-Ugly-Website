@@ -188,7 +188,7 @@ div#play-container > div.window-background-transition > div {
   
   /* Link the animation named "play-sprite" */
   /* duration: 0.8s, loops indefinitely, moves in discrete steps */
-  animation: play-sprite 0.8s steps(6) infinite;
+  animation: play-sprite 0.8s steps(4) infinite;
 }
 
 @keyframes play-sprite {
