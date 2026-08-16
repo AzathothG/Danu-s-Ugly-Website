@@ -180,7 +180,7 @@ div#play-container > div.window-background-transition > div {
   height: 64px;
   
   /* Load the spritesheet asset */
-  background-image: url('Daoloth-Eye.png');
+  background-image: url('./assets/Daoloth-Eye.png');
   background-repeat: no-repeat;
   
   /* Set the initial position to the first frame */
