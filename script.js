@@ -1,4 +1,3 @@
-const window = new Object();
 const music = new Audio("./assets/audio/music.mp3");
 
 music.loop = true;
@@ -14,6 +13,8 @@ document.addEventListener("click", musicAutoplay);
 document.addEventListener("keydown", musicAutoplay);
 
 document.addEventListener("DOMContentLoaded", () => {
+    const window = new Object();
+
     function windowInitalize(windowIdentifier, windowContentInitalize) {
         let localWindow = window[windowIdentifier];
 
