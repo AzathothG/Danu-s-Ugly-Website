@@ -62,8 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     windowInitalize("play");
 
-    music.loop = true;
-    music.play();
+    document.addEventListener("focus", function musicPlay() {
+        music.loop = true;
+        music.play();
+
+        document.removeEventListener("focus", musicPlay);
+    });
 
     window.menu.classList.add("window-fade-in");
     document.body.appendChild(window.menu);
