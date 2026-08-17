@@ -1,4 +1,4 @@
-const music = new Audio("./assets/audio/music.mp3");
+const music = new Audio("./assets/music.mp3");
 
 music.muted = true;
 music.loop = true;
