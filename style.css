@@ -174,20 +174,12 @@ div#play-container > div.window-background-transition > div {
     animation: play-background-transition 3.5s infinite linear;
 }
 
-.sprite-window {
-  /* Size of exactly ONE single frame. THIS IS A TEST */
+/* .sprite-window {
   width: 128px;
   height: 64px;
-  
-  /* Load the spritesheet asset */
   background-image: url('./assets/Daoloth-Eye.png');
   background-repeat: no-repeat;
-  
-  /* Set the initial position to the first frame */
   background-position: 0px 0px;
-  
-  /* Link the animation named "play-sprite" */
-  /* duration: 0.8s, loops indefinitely, moves in discrete steps */
   animation: play-sprite 0.8s steps(4) infinite;
 }
 
@@ -196,7 +188,6 @@ div#play-container > div.window-background-transition > div {
     background-position: 0px 0px;
   }
   to {
-    /* Shift the image left by the full width of the spritesheet */
     background-position: -600px 0px;
   }
-}
+} */

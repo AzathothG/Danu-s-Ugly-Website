@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const window = new Object();
+    const music = new Audio("assets/audio/music.mp3");
 
     function windowInitalize(windowIdentifier, windowContentInitalize) {
         let localWindow = window[windowIdentifier];
@@ -58,7 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return content;
     });
+
     windowInitalize("play");
+
+    music.loop = true;
+    music.play();
 
     window.menu.classList.add("window-fade-in");
     document.body.appendChild(window.menu);
