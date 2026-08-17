@@ -1,18 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const window = new Object();
-    const music = new Audio("assets/audio/music.mp3");
+const window = new Object();
+const music = new Audio("assets/audio/music.mp3");
 
-    function musicAutoplay() {
-        music.loop = true;
+music.loop = true;
+
+function musicAutoplay() {
         music.play();
 
         document.removeEventListener("click", musicAutoplay);
         document.removeEventListener("keydown", musicAutoplay);
     };
 
-    document.addEventListener("click", musicAutoplay);
-    document.addEventListener("keydown", musicAutoplay);
+document.addEventListener("click", musicAutoplay);
+document.addEventListener("keydown", musicAutoplay);
 
+document.addEventListener("DOMContentLoaded", () => {
     function windowInitalize(windowIdentifier, windowContentInitalize) {
         let localWindow = window[windowIdentifier];
 
