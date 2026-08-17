@@ -1,5 +1,5 @@
 const window = new Object();
-const music = new Audio("assets/audio/music.mp3");
+const music = new Audio("./assets/audio/music.mp3");
 
 music.loop = true;
 
