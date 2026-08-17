@@ -2,6 +2,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const window = new Object();
     const music = new Audio("assets/audio/music.mp3");
 
+    function musicAutoplay() {
+        music.loop = true;
+        music.play();
+
+        document.removeEventListener("click", musicAutoplay);
+        document.removeEventListener("keydown", musicAutoplay);
+    };
+
+    document.addEventListener("click", musicAutoplay);
+    document.addEventListener("keydown", musicAutoplay);
+
     function windowInitalize(windowIdentifier, windowContentInitalize) {
         let localWindow = window[windowIdentifier];
 
@@ -61,13 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     windowInitalize("play");
-
-    document.addEventListener("focus", function musicPlay() {
-        music.loop = true;
-        music.play();
-
-        document.removeEventListener("focus", musicPlay);
-    });
 
     window.menu.classList.add("window-fade-in");
     document.body.appendChild(window.menu);
