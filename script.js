@@ -1,9 +1,12 @@
 const music = new Audio("./assets/audio/music.mp3");
 
+music.muted = true;
 music.loop = true;
 
+music.play();
+
 function musicAutoplay() {
-        music.play();
+        music.muted = false;
 
         document.removeEventListener("click", musicAutoplay);
         document.removeEventListener("keydown", musicAutoplay);
