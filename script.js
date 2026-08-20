@@ -1,7 +1,5 @@
+const windowContainer = new Object();
 const music = new Audio("./assets/music.mp3");
-
-music.muted = true;
-music.loop = true;
 
 function musicAutoplay() {
         music.muted = false;
@@ -9,42 +7,74 @@ function musicAutoplay() {
 
         document.removeEventListener("click", musicAutoplay);
         document.removeEventListener("keydown", musicAutoplay);
+};
+
+function windowInitalize(windowIdentifier, windowContentInitalize) {
+    let window = windowContainer[windowIdentifier];
+
+    window = document.createElement("div");
+    window.id = windowIdentifier + "-container";
+    window.classList.add("window");
+
+    window.backgroundTransition = document.createElement("div");
+    window.backgroundTransition.classList.add("window-background-transition");
+    window.backgroundTransition.appendChild(document.createElement("div"));
+    window.appendChild(window.backgroundTransition);
+
+    window.backgroundGradient = document.createElement("div");
+    window.backgroundGradient.classList.add("window-background-gradient");
+    window.appendChild(window.backgroundGradient);
+
+    window.content = document.createElement("div");
+    window.content.classList.add("window-content");
+
+    if (typeof windowContentInitalize === "function") {
+        window.content = windowContentInitalize(window.content);
     };
+
+    window.appendChild(window.content);
+
+    windowContainer[windowIdentifier] = window;
+
+    return window;
+};
+
+function windowSwitch(windowIdentifier) {
+    let window = windowContainer[windowIdentifier];
+    let currentWindow = document.querySelector(".window");
+
+    function windowLoad() {
+        window.classList.add("window-fade-in");
+        document.body.appendChild(window);
+
+        setTimeout(() => {
+            window.classList.remove("window-fade-in");
+        }, 1000);
+    };
+
+    if (currentWindow) {
+        currentWindow.classList.add("window-fade-out");
+
+        setTimeout(() => {
+            currentWindow.remove();
+            currentWindow.classList.remove("window-fade-out");
+
+            windowLoad();
+        }, 1000);
+    } else {
+        windowLoad();
+    };
+
+    return window;
+};
+
+music.muted = true;
+music.loop = true;
 
 document.addEventListener("click", musicAutoplay);
 document.addEventListener("keydown", musicAutoplay);
 
 document.addEventListener("DOMContentLoaded", () => {
-    const window = new Object();
-
-    function windowInitalize(windowIdentifier, windowContentInitalize) {
-        let localWindow = window[windowIdentifier];
-
-        localWindow = document.createElement("div");
-        localWindow.id = windowIdentifier + "-container";
-        localWindow.classList.add("window");
-
-        localWindow.backgroundTransition = document.createElement("div");
-        localWindow.backgroundTransition.classList.add("window-background-transition");
-        localWindow.backgroundTransition.appendChild(document.createElement("div"));
-        localWindow.appendChild(localWindow.backgroundTransition);
-
-        localWindow.backgroundGradient = document.createElement("div");
-        localWindow.backgroundGradient.classList.add("window-background-gradient");
-        localWindow.appendChild(localWindow.backgroundGradient);
-
-        localWindow.content = document.createElement("div");
-        localWindow.content.classList.add("window-content");
-        if (typeof windowContentInitalize === "function") {
-            localWindow.content = windowContentInitalize(localWindow.content);
-        }
-        localWindow.appendChild(localWindow.content);
-
-        window[windowIdentifier] = localWindow;
-
-        return localWindow;
-    }
-
     windowInitalize("menu", (content) => {
         content.logo = document.createElement("h1");
         content.logo.id = "menu-logo";
@@ -54,21 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         content.buttonPlay = document.createElement("button");
         content.buttonPlay.id = "menu-button-play";
         content.buttonPlay.innerHTML = "<span>START</span>";
-        content.buttonPlay.addEventListener("click", () => {
-            window.menu.classList.add("window-fade-out");
-
-            setTimeout(() => {
-                window.menu.remove();
-                window.menu.classList.remove("window-fade-out");
-
-                window.play.classList.add("window-fade-in");
-                document.body.appendChild(window.play);
-            }, 1000);
-
-            setTimeout(() => {
-                window.play.classList.remove("window-fade-in");
-            }, 2000);
-        });
+        content.buttonPlay.addEventListener("click", () => windowSwitch("play"));
 
         content.appendChild(content.buttonPlay);
 
@@ -77,10 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     windowInitalize("play");
 
-    window.menu.classList.add("window-fade-in");
-    document.body.appendChild(window.menu);
+    windowContainer.menu.classList.add("window-fade-in");
+    document.body.appendChild(windowContainer.menu);
 
     setTimeout(() => {
-        window.menu.classList.remove("window-fade-in");
+        windowContainer.menu.classList.remove("window-fade-in");
     }, 1000);
-})
+});
